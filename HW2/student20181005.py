@@ -6,10 +6,19 @@ score=[]
 wb = load_workbook(filename="student.xlsx")
 ws = wb['Sheet1']
 
+score_rate = {'C':0.3, 'D':0.35, 'E':0.34, 'F':1}
+
 i=2
 while True:
+    total=0
     if ws['A'+str(i)].value == None:
         break
+
+    for k,v in score_rate.items():
+        total+=ws[k+str(i)].value *v
+
+    ws['G'+str(i)].value = total
+
     score.append((ws['G'+str(i)].value))
     i+=1
 
