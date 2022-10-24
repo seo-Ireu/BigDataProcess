@@ -19,8 +19,8 @@ with open(input_file, "rt") as file:
         region = info[0]
         m,d,y = map(int,info[1].split("/"))
         day = weeks[calendar.weekday(y,m,d)]
-        vihicle = info[2]
-        trip = info[3]
+        vihicle = int(info[2])
+        trip = int(info[3])
 
         if day not in result[region]:
             result[region][day] = {}
